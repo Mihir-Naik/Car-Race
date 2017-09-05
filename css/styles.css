@@ -1,40 +1,70 @@
 body {
     background: #D3EFF7;
 }
-/* #container {
-    width: 500px;
-    height: 800px;
-    background: #191919;
-    margin: 0 auto;
-    overflow: hidden;
-}
-/* cars {
-    width: 50px;
-    height: 75px;
-    background: red;
-    position: absolute;
-}
-#car {
-   bottom: 10%;
-   left: 50%
-} */
+
 #container{
     position: relative;
     height: 95vh;
-    width: 500px;
+    width: 510px;
     left: 25%;
     margin-top: 0 auto;
     background-color: #393939;
-    overflow: hidden;
+    border: 2px solid black;
+    /* overflow: hidden; */
 }
+
 .cars{
     position: absolute;
-    height: 75px;
-    width: 50px;
+    height: 90px;
+    width: 60px;
     border-radius: 10px;
 }
+
 #car{
     bottom: 25px;
-    left: 225px;
-    background-color: red;
+    left: 25px;
+    /* background-color: #393939; */
+}
+
+.lane {
+    height: 125px;
+    width: 10px;
+    position: absolute;
+    background: white;
+}
+#line1 {
+    left: 120px;
+    top: 90px;
+}
+#line2 {
+    left: 250px;
+    top: 30px;
+}
+#line3 {
+    left: 380px;
+    top: 90px;
+}
+#line4 {
+    left: 120px;
+    top: 350px;
+}
+#line5 {
+    left: 250px;
+    top: 275px;
+}
+#line6 {
+    left: 380px;
+    top: 350px;
+}
+#line7 {
+    left: 120px;
+    top: 610px;
+}
+#line8 {
+    left: 250px;
+    top: 570px;
+}
+#line9 {
+    left: 380px;
+    top: 610px;
 }
