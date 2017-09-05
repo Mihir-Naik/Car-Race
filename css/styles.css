@@ -2,6 +2,12 @@ body {
     background: #D3EFF7;
 }
 
+#start {
+    position: relative;
+    font-size: 20px;
+    top: 500px;
+}
+
 #container{
     position: relative;
     height: 95vh;
@@ -67,4 +73,11 @@ body {
 #line9 {
     left: 380px;
     top: 610px;
+}
+
+
+.box {
+    width: 100px;
+    height: 100px;
+    background: green;
 }
