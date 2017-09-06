@@ -32,11 +32,13 @@ body {
     height: 90px;
     width: 60px;
     border-radius: 10px;
+    
 }
 
 #car{
     bottom: 25px;
     left: 25px;
+    display: none;
     /* background-color: #393939; */
 }
 #orange {
