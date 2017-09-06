@@ -2,6 +2,7 @@ $(function(){
 
 // Variables
 var $start = $('#start')
+var $score = $('#score')
 var $container = $('#container')
 var $car = $('#car')
 var $orange = $('#orange')
@@ -22,8 +23,9 @@ var goLeft = false
 var goRight = false
 var goUp = false
 var goDown = false
-var speed = 3
-var score = 0
+var speed = 5
+var carSpeed = 2
+var score = 1
 // KeyDown Event
 
 $(document).on('keydown', function(e){
@@ -93,6 +95,10 @@ function down() {
 $start.on('click', function() {
 animation = requestAnimationFrame(gameOn)
 function gameOn(){
+    setInterval(function(){
+        score++
+        $score.text('Score: ' + Math.floor(score/1000))
+    }, 500)
     rollDownLine($line1)
     rollDownLine($line2)
     rollDownLine($line3)
@@ -105,9 +111,11 @@ function gameOn(){
     moveOpCar($orange)
     moveOpCar($white)
     moveOpCar($purple)
+
     animation = requestAnimationFrame(gameOn)
 }
 })
+
 // Line keeps rolling down continously
 function rollDownLine(line) {
     var lineCurrentTop = parseInt(line.css('top'))
@@ -124,12 +132,13 @@ function moveOpCar(car){
     var carLeft = parseInt(getRandomInt(($car.width() - 30), ($container.width()-$car.width())))
     car.css('left', carLeft)
     }
-    car.css('top', carCurrentTop + speed)
+    car.css('top', carCurrentTop + carSpeed)
 }
 // Function to create ranndom number for opponent car's 'Left' position
 function getRandomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 
 // setInterval(opCar, 3000)
 // function opCar() {
