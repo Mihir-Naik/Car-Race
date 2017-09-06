@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <button id='start'>Race</button>
+    <div id='sidebar'>
+    <button class='btn' id='start'>Race</button>
+    <button class='btn' id='score'>Score: 0</button>
+    </div>
     <div id='container'>
         <div class='lane' id='line1'></div>
         <div class='lane' id='line2'></div>
@@ -19,10 +22,11 @@
         <div class='lane' id='line7'></div>
         <div class='lane' id='line8'></div>
         <div class='lane' id='line9'></div>
-        <div class='cars' id='car'><img src="/Users/naikmd/projects/project1/src/red-car.png" width="60px" height="90px">
-        </div>
+        <div class='cars' id='car'><img src="src/red-car.png" width="60px" height="90px"></div>
+        <div class='cars' id='orange'><img src="src/orange-car.png" width="60px" height="90px"></div>
+        <div class='cars' id='white'><img src="src/white-car.png" width="60px" height="90px"></div>
+        <div class='cars' id='purple'><img src="src/purple-car.png" width="60px" height="90px"></div>
     </div>
-
 
     <script src="src/jquery-3.2.1.js"></script>
     <script src="js/main.js"></script>

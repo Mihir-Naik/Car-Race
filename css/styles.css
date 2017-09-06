@@ -1,22 +1,30 @@
 body {
     background: #D3EFF7;
+    max-width: 1600px;
+    min-width: 550px;
 }
 
-#start {
+#sidebar {
     position: relative;
-    font-size: 20px;
-    top: 500px;
+    margin: 0 auto;
+    width: 500px;
+    height: 30px;
+}
+.btn {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding: 1px;
 }
 
 #container{
     position: relative;
     height: 95vh;
     width: 510px;
-    left: 25%;
-    margin-top: 0 auto;
-    background-color: #393939;
+    background-color: #696969;
     border: 2px solid black;
-    /* overflow: hidden; */
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .cars{
@@ -30,6 +38,18 @@ body {
     bottom: 25px;
     left: 25px;
     /* background-color: #393939; */
+}
+#orange {
+    left: 170px;
+    top: 300px;
+}
+#white {
+    left: 425px;
+    top: 525px;
+}
+#purple {
+    left: 295px;
+    top: 50px;
 }
 
 .lane {
