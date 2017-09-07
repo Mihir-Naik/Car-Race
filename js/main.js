@@ -3,6 +3,13 @@ $(function(){
 // Variables
 var $start = $('#start')
 var $score = $('#score')
+var $restart = $('#restart')
+var $p1 = $('#p1')
+var $p2 = $('#p2')
+var player1 = {score: null}
+var player2 = {score: null}
+var currentPlayer = player1.score
+
 var $container = $('#container')
 var $car = $('#car')
 var $oppCar  = $('.oppCar')
@@ -18,8 +25,24 @@ var $line6 = $('#line6')
 var $line7 = $('#line7')
 var $line8 = $('#line8')
 var $line9 = $('#line9')
+var car = {
+    bottom: parseInt($car.css('bottom')),
+    left: parseInt($car.css('left'))
+}
+var orange = {
+    top: parseInt($orange.css('top')),
+    left: parseInt($orange.css('left'))
+}
+var white = {
+    top: parseInt($white.css('top')),
+    left: parseInt($white.css('left'))
+}
+var purple = {
+    top: parseInt($purple.css('top')),
+    left: parseInt($purple.css('left'))
+}
 
-
+var gameOver = false
 var goLeft = false
 var goRight = false
 var goUp = false
@@ -30,28 +53,30 @@ var score = 1
 // KeyDown Event
 
 $(document).on('keydown', function(e){
-    var key = e.keyCode;
-    if (key === 37 && goLeft === false) {
-        goLeft = requestAnimationFrame(left);
-    } else if (key === 39 && goRight === false) {
-        goRight = requestAnimationFrame(right);
-    } else if (key === 38 && goUp === false){
-        goUp = requestAnimationFrame(up);
-    } else if (key === 40 && goDown === false) {
-        goDown = requestAnimationFrame(down)
+    if (gameOver === false) {
+        var key = e.keyCode
+        if (key === 37 && goLeft === false) {
+            goLeft = requestAnimationFrame(left)
+        } else if (key === 39 && goRight === false) {
+            goRight = requestAnimationFrame(right)
+        } else if (key === 38 && goUp === false) {
+            goUp = requestAnimationFrame(up)
+        } else if (key === 40 && goDown === false) {
+            goDown = requestAnimationFrame(down)
+        }
     }
 })
 
 // KeyUp Event
 
 $(document).on('keyup', function(e){
-    var key = e.keyCode;
+    var key = e.keyCode
     if (key === 37){
         cancelAnimationFrame(goLeft)
-        goLeft = false;
+        goLeft = false
     } else if (key === 39){
         cancelAnimationFrame(goRight)
-        goRight = false;
+        goRight = false
     } else if (key === 38){
         cancelAnimationFrame(goUp)
         goUp = false 
@@ -93,10 +118,39 @@ function down() {
 }
 
 // Start the race using start button
-$start.on('click', function() {
-    $car.slideDown(700)
-    animation = requestAnimationFrame(gameOn)            
-    function gameOn(){
+
+var play = function(){
+    if (gameOver === false) {
+        animation = requestAnimationFrame(gameOn)
+        gameOn()
+    }
+}
+
+if (player1.score === null && player2.score === null){
+    $start.on('click', play)
+}
+$restart.on('click', function (){
+    $('#gameover').css("display", "none") 
+    gameOver = false
+    score = 1
+    speed = 5
+    carSpeed = 2
+    $car.css("bottom", ""+car.bottom+"px")
+    $car.css("left", ""+car.left+"px")
+    // $car.css('display', 'visible')
+    $orange.css("top", ""+orange.top+"px")
+    console.log($orange.css('top'))
+    $orange.css("left", ""+orange.left+"px")
+    $white.css("top", ""+white.bottom+"px")
+    $white.css("left", ""+white.left+"px")
+    $purple.css("top", ""+purple.top+"px")
+    $purple.css("left", ""+purple.left+"px")
+    animation = requestAnimationFrame(gameOn)
+    gameOn()
+})
+
+// Animation function
+var gameOn = function(){
     if (gameOver === false){
         
         score++
@@ -105,27 +159,37 @@ $start.on('click', function() {
             speed++
             carSpeed++
         }
-        // Collision detection for cars
-        var carObj = {x: parseInt($car.css('left')),
-        y: parseInt($car.css('top')),
-        width: 60,
-        height: 90
+    // Car Objects for collision detection
+        var carObj = {
+            x: parseInt($car.css('left')),
+            y: parseInt($car.css('top')),
+            width: 60,
+            height: 90
+            }
+        var orangeObj = {
+            x: parseInt($orange.css('left')),
+            y: parseInt($orange.css('top')),
+            width: 60,
+            height: 90
+            }
+        var whiteObj = {
+            x: parseInt($white.css('left')),
+            y: parseInt($white.css('top')),
+            width: 60,
+            height: 90
         }
-        var orangeObj = {x: parseInt($orange.css('left')),
-        y: parseInt($orange.css('top')),
-        width: 60,
-        height: 90}
-        var whiteObj = {x: parseInt($white.css('left')),
-        y: parseInt($white.css('top')),
-        width: 60,
-        height: 90}
-        var purpleObj = {x: parseInt($purple.css('left')),
-        y: parseInt($purple.css('top')),
-        width: 60,
-        height: 90}
-
-        if (collision(carObj,whiteObj) || collision(carObj,orangeObj) || collision(carObj,purpleObj)){
-            console.log('inside the animation')
+        var purpleObj = {
+            x: parseInt($purple.css('left')),
+            y: parseInt($purple.css('top')),
+            width: 60,
+            height: 90
+        }
+    // Check for collision
+        if (collision(carObj,whiteObj) ||
+            collision(carObj,orangeObj) || 
+            collision(carObj,purpleObj)) {
+            console.log('collision')
+            gameOver = true
         }
 
         rollDownLine($line1)
@@ -144,8 +208,7 @@ $start.on('click', function() {
 
         animation = requestAnimationFrame(gameOn)
     }
-    }
-})
+}
 
 // Line keeps rolling down continously
 function rollDownLine(line) {
@@ -170,30 +233,48 @@ function getRandomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
+// Collision detection function
 var collision = function (car, othercar) {
     if (car.x < othercar.x + othercar.width &&
     car.x + othercar.width > othercar.x &&
     car.y < othercar.y + othercar.height &&
     car.height + othercar.y > othercar.y) {                 
     // collision detected!
-    $car.hide('explode')
+    // $car.toggle('explode')
     console.log('collision')
     endGame()
     }
 }
    
 var endGame = function(){
+    gameOver = true
     cancelAnimationFrame(animation)
     cancelAnimationFrame(goLeft)
     cancelAnimationFrame(goRight)
     cancelAnimationFrame(goUp)
     cancelAnimationFrame(goDown)
-    gameOver = true
-    $score.text('Score: '+score)
+    
+    if (player1.score === null) {
+        $p1.text('Player 1: '+score)
+        player1.score = score
+    } else {
+        $p2.text('Player 2: '+score)
+        player2.score = score
+        if (player1.score > player2.score){
+            alert("Player 1 is a winner")
+        } else {
+            alert("Player 2 is a winner")
+        }
+    }
     console.log('Your score is: ' + score)
+    console.log('speed: ' + speed)
+    console.log('carSpeed: ' + carSpeed)
+    $score.fadeOut(500)
+    $restart.fadeIn(500)
+    $('#gameover').toggle(1200)
+   
 }
-var gameOver = false
+
 
 // setInterval(opCar, 3000)
 // function opCar() {
