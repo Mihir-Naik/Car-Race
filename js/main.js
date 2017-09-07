@@ -121,6 +121,7 @@ function down() {
 
 var play = function(){
     if (gameOver === false) {
+        
         animation = requestAnimationFrame(gameOn)
         gameOn()
     }
