@@ -25,6 +25,8 @@ var $line6 = $('#line6')
 var $line7 = $('#line7')
 var $line8 = $('#line8')
 var $line9 = $('#line9')
+var $leftBorder = $('#leftBorder')
+var $rightBorder = $('#rightBorder')
 var car = {
     bottom: parseInt($car.css('bottom')),
     left: parseInt($car.css('left'))
@@ -47,8 +49,8 @@ var goLeft = false
 var goRight = false
 var goUp = false
 var goDown = false
-var speed = 5
-var carSpeed = 2
+var speed = 4
+var carSpeed = 1
 var score = 1
 // KeyDown Event
 
@@ -131,11 +133,13 @@ if (player1.score === null && player2.score === null){
     $start.on('click', play)
 }
 $restart.on('click', function (){
+    $car.toggle('explode')
+    $score.toggle(500)
     $('#gameover').css("display", "none") 
     gameOver = false
     score = 1
-    speed = 5
-    carSpeed = 2
+    speed = 4
+    carSpeed = 1
     $car.css("bottom", ""+car.bottom+"px")
     $car.css("left", ""+car.left+"px")
     // $car.css('display', 'visible')
@@ -202,6 +206,8 @@ var gameOn = function(){
         rollDownLine($line7)
         rollDownLine($line8)
         rollDownLine($line9)
+        rollDownLine($rightBorder)
+        rollDownLine($leftBorder)
         
         moveOpCar($white)
         moveOpCar($orange)
@@ -223,15 +229,18 @@ function rollDownLine(line) {
 function moveOpCar(car){
     var carCurrentTop = parseInt(car.css('top'))
     if (carCurrentTop > $container.height()) {
-    carCurrentTop = -30
+    carCurrentTop = -50
     var carLeft = parseInt(getRandomInt(($car.width() - 30), ($container.width()-$car.width())))
-    car.css('left', carLeft)
+        if ((carLeft > 15 && carLeft < 55) ||(carLeft > 140 && carLeft < 180) || (carLeft > 270 && carLeft < 310) || (carLeft > 400 && carLeft < 445)) {
+            car.css('left', carLeft)
+        }
     }
     car.css('top', carCurrentTop + carSpeed)
 }
 // Function to create ranndom number for opponent car's 'Left' position
 function getRandomInt (min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min
+        
 }
 
 // Collision detection function
@@ -241,7 +250,7 @@ var collision = function (car, othercar) {
     car.y < othercar.y + othercar.height &&
     car.height + othercar.y > othercar.y) {                 
     // collision detected!
-    // $car.toggle('explode')
+    $car.toggle('explode')
     console.log('collision')
     endGame()
     }
@@ -262,15 +271,15 @@ var endGame = function(){
         $p2.text('Player 2: '+score)
         player2.score = score
         if (player1.score > player2.score){
-            alert("Player 1 is a winner")
+            $('#winner').text('Player 1 won the race')
         } else {
-            alert("Player 2 is a winner")
+            $('#winner').text('Player 2 won the race')
         }
     }
     console.log('Your score is: ' + score)
     console.log('speed: ' + speed)
     console.log('carSpeed: ' + carSpeed)
-    $score.fadeOut(500)
+    $score.toggle(500)
     $restart.fadeIn(500)
     $('#gameover').toggle(1200)
    

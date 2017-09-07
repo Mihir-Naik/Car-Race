@@ -1,34 +1,39 @@
 body {
     background: #D3EFF7;
     max-width: 1600px;
-    min-width: 550px;
+    min-width: 1050px;
 }
 
 #sidebar {
     position: relative;
-    margin: 0 auto;
     width: 500px;
     height: 95vh;
     display: inline-block;
+    border: 2px solid black;
+    background: white;
 }
 .btn {
     font-size: 22px;
     font-weight: bold;
-    /* margin-bottom: 5px; */
-    padding: 1px;
+    margin: 10px;
+    padding: 2px;
+    width: 100px;
 }
 #restart {
     display: none;
 }
+#winner {
+    text-align: center;
+    font-size: 24px;
+}
 
 #container{
-    position: relative;
+    position: absolute;
     height: 95vh;
     width: 510px;
     background-color: #696969;
     border: 2px solid black;
     overflow: hidden;
-    margin: 0 auto;
     display: inline-block;
 }
 
@@ -41,12 +46,12 @@ body {
 }
 
 #car{
-    left: 25px;
+    left: 165px;
     bottom: 25px;
 }
 #orange {
-    left: 170px;
-    top: 500px;
+    left: 25px;
+    top: 50px;
 }
 #purple {
     left: 295px;
@@ -54,7 +59,7 @@ body {
 }
 #white {
     left: 425px;
-    top: 50px;
+    top: 500px;
 }
 
 
@@ -63,6 +68,16 @@ body {
     width: 10px;
     position: absolute;
     background: white;
+}
+#leftBorder {
+    left: 1px;
+    top: 0;
+    background: yellow;
+}
+#rightBorder {
+    left: 500px;
+    top: 0;
+    background: yellow;
 }
 #line1 {
     left: 120px;
