@@ -1,6 +1,6 @@
 #  Project 1: TURBO RUSH
 
-##Go for a race by clicking on this car [🏎](https://mihir-naik.github.io/Car-Race/)
+##Go for a race by clicking on this car [🏎](https://mihir-naik.github.io/TURBO-RUSH/)
 
 
 
@@ -30,8 +30,8 @@ Car Race is being built using HTML5, CSS3, JavaScript, and the jQuery library
   
 # Credits
 
-- [MDN Javascript Docs] (https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [jQuery Docs] (http://api.jquery.com/)
+- [MDN Javascript Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [jQuery Docs](http://api.jquery.com/)
 
 
 
