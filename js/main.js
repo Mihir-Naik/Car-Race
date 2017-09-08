@@ -10,7 +10,8 @@ var $p2 = $('#p2')
 var player1 = {score: null}
 var player2 = {score: null}
 var carExplosion = new Audio('src/explosion.wav')
-
+var countdownTimer = new Audio('src/beep.wav')
+var go = new Audio('src/go.wav')
 var $container = $('#container')
 var $car = $('#car')
 var $oppCar  = $('.oppCar')
@@ -116,12 +117,15 @@ var play = function(){
     $("#three, #two, #one").css("background", "none");
     if (gameOver === false) {
         setTimeout(function (){
+            countdownTimer.play()
             $('#three').css("background", "red")
         }, 1000)
         setTimeout(function(){
+            countdownTimer.play()
             $('#two').css("background", "orange")
         }, 2000)
         setTimeout(function(){
+            go.play()
             $('#one').css("background", "green")
             animation = requestAnimationFrame(gameOn)
             gameOn()
