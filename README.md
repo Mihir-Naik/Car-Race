@@ -1,8 +1,8 @@
-#  Project 1: CAR RACE
+#  Project 1: TURBO RUSH
 
 ##Go for a race by clicking on this car [🏎](https://mihir-naik.github.io/Car-Race/)
 
----
+
 
 A car racing game similar to something that you probably grew up playing as a kid. Its really simple to play, just use your arrow keys to move your RED CAR 🚗 and avoid collision with traffic cars 🚙.
 The speed will increase as you continue to skillfully avoid collision and continue to race. As soon as you collide, your race ends.
@@ -12,12 +12,12 @@ Finally, both the players will see their score and winner will be displayed on t
 
 To restart, click on RELOAD and challenge your competitor once again... Keep Racing !!
 
---
+
 # Development & Technologies
 
 Car Race is being built using HTML5, CSS3, JavaScript, and the jQuery library
 
---
+
 # User Stories
 
 - The racing experience should be smooth enough to continue racing.
@@ -25,15 +25,15 @@ Car Race is being built using HTML5, CSS3, JavaScript, and the jQuery library
 - The score for each player should be visible on screen.
 - Finally, Winner should be displayed on screen to get the results.
 
---
+
  
   
 # Credits
 
-- MDN Javascript Docs
-- jQuery Docs
+- [MDN Javascript Docs] (https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [jQuery Docs] (http://api.jquery.com/)
 
---
+
 
 # Dream features
 
@@ -41,6 +41,6 @@ Car Race is being built using HTML5, CSS3, JavaScript, and the jQuery library
 - Add more sound and visual effects
 - Able to let player choose their car
 
---
+
 
 
