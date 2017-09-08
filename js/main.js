@@ -12,6 +12,8 @@ var player2 = {score: null}
 var carExplosion = new Audio('src/explosion.wav')
 var countdownTimer = new Audio('src/beep.wav')
 var go = new Audio('src/go.wav')
+var backgroundMusic = new Audio('src/raceBackground.mp3')
+
 var $container = $('#container')
 var $car = $('#car')
 var $oppCar  = $('.oppCar')
@@ -127,12 +129,11 @@ var play = function(){
         setTimeout(function(){
             go.play()
             $('#one').css("background", "green")
+            backgroundMusic.loop = true
+            backgroundMusic.play()
             animation = requestAnimationFrame(gameOn)
             gameOn()
         }, 3000)
-        
-        
-       
     }
 }
 
@@ -240,6 +241,7 @@ var collision = function (car, othercar) {
     car.height + othercar.y > othercar.y) {                 
     // collision detected!
     carExplosion.play()
+    backgroundMusic.pause()
     $car.toggle('explode')
     $restart.fadeIn(500)
     endGame()

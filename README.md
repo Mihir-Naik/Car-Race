@@ -1,6 +1,6 @@
 #  Project 1: TURBO RUSH
 
-##Go for a race by clicking on this car [🏎](https://mihir-naik.github.io/TURBO-RUSH/)
+## Go for a race by clicking on this car [🏎](https://mihir-naik.github.io/TURBO-RUSH/)
 
 
 
@@ -39,7 +39,7 @@ Car Race is being built using HTML5, CSS3, JavaScript, and the jQuery library
 
 - 2 players racing simultaneously
 - Add more sound and visual effects
-- Able to let player choose their car
+- Able to let players choose their car
 
 
 
