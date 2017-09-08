@@ -15,7 +15,7 @@ To restart, click on RELOAD and challenge your competitor once again... Keep Rac
 
 # Development & Technologies
 
-Car Race is being built using HTML5, CSS3, JavaScript, and the jQuery library
+TURBO RUSH is built using HTML5, CSS3, JavaScript, and the jQuery library
 
 
 # User Stories
@@ -23,6 +23,7 @@ Car Race is being built using HTML5, CSS3, JavaScript, and the jQuery library
 - The racing experience should be smooth enough to continue racing.
 - The game should get more challenging as the race advances.
 - The score for each player should be visible on screen.
+- The game should have some kind of background music during race time.
 - Finally, Winner should be displayed on screen to get the results.
 
 
@@ -32,6 +33,7 @@ Car Race is being built using HTML5, CSS3, JavaScript, and the jQuery library
 
 - [MDN Javascript Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [jQuery Docs](http://api.jquery.com/)
+- Background music from [www.zedge.net](https://www.zedge.net/ringtones/)
 
 
 
