@@ -116,7 +116,7 @@ function down() {
 }
 // Start the race using start button
 var play = function(){
-    $("#three, #two, #one").css("background", "none");
+    $("#three, #two, #one, #goNow").css("background", "none");
     if (gameOver === false) {
         setTimeout(function (){
             countdownTimer.play()
@@ -127,13 +127,17 @@ var play = function(){
             $('#two').css("background", "orange")
         }, 2000)
         setTimeout(function(){
+            countdownTimer.play()
+            $('#one').css("background", "yellow")
+        }, 3000)
+        setTimeout(function(){
             go.play()
-            $('#one').css("background", "green")
+            $('#goNow').css("background", "green")
             backgroundMusic.loop = true
             backgroundMusic.play()
             animation = requestAnimationFrame(gameOn)
             gameOn()
-        }, 3000)
+        }, 4000)
     }
 }
 
