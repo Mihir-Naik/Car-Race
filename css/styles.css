@@ -1,32 +1,82 @@
 body {
-    background: #D3EFF7;
-    max-width: 1600px;
-    min-width: 1050px;
-}
+    /* background: black; */
+    min-width: 1024px;
+    background-image: url("/Users/naikmd/projects/project1/src/board-background.png");
 
+}
 #sidebar {
     position: relative;
     width: 500px;
     height: 95vh;
     display: inline-block;
-    border: 2px solid black;
-    background: white;
+    /* border: 2px solid black; */
+    /* background: white; */
+    margin: 2px;
+    background-image: url("/Users/naikmd/projects/project1/src/board-background.png");
 }
 .btn {
-    font-size: 22px;
+    font-size: 21px;
     font-weight: bold;
-    margin: 10px;
+    font-family: 'Play', sans-serif;    
+    margin: 10px auto;
     padding: 2px;
-    width: 100px;
+    width: 163px;
+    height: 50px;
+    display: block;
+
+}
+#start{
+    display: block;
+    position: relative;
 }
 #restart {
-    display: none;
+    display: hidden;
+    position: relative;
+    top: 5px;
+}
+#reload {
+    display: block;
+    display: hidden;
+}
+#score {
+    position: relative;
+    margin: 5px auto;
+    height: 50px;
+    width: 300px;
+    display: block;
 }
 #winner {
+    font-family: 'Play', sans-serif;
+    color: yellow; 
     text-align: center;
-    font-size: 24px;
-}
+    font-size: 40px;
+    width: 400px;
+    height: 200px;
+    /* border: 1px dashed black; */
+    position: relative;
+    margin: 20px auto;
 
+}
+#countdown {
+    position: relative;
+    /* top: 350px;
+    border: 1px solid blue; */
+    margin: 0 auto;
+    height: 84px;
+    width: 263px;
+    /* background: black; */
+}
+.lights {
+    border: 2px solid white;
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    display: inline-block;
+    margin: 3px;
+}
+#counth1 {
+    font-size: 75px;
+}
 #container{
     position: absolute;
     height: 95vh;
@@ -35,8 +85,8 @@ body {
     border: 2px solid black;
     overflow: hidden;
     display: inline-block;
+    margin: 2px;
 }
-
 .cars{
     position: absolute;
     height: 90px;
@@ -44,7 +94,6 @@ body {
     border-radius: 10px;
     
 }
-
 #car{
     left: 165px;
     bottom: 25px;
@@ -61,23 +110,23 @@ body {
     left: 425px;
     top: 500px;
 }
-
-
 .lane {
     height: 125px;
     width: 10px;
     position: absolute;
     background: white;
 }
+.borderLane {
+    background: yellow;
+    height: 95vh;
+    width: 10px;
+    position: absolute;
+}
 #leftBorder {
     left: 1px;
-    top: 0;
-    background: yellow;
 }
 #rightBorder {
     left: 500px;
-    top: 0;
-    background: yellow;
 }
 #line1 {
     left: 120px;
@@ -115,7 +164,6 @@ body {
     left: 380px;
     top: 610px;
 }
-
 #gameover{
     position: relative;
     height: 95vh;
@@ -124,9 +172,3 @@ body {
     margin: 0 auto;
     display: none;
 }
-
-/* .box {
-    width: 100px;
-    height: 100px;
-    background: green;
-} */
