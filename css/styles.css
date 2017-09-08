@@ -8,6 +8,7 @@ body {
     height: 95vh;
     display: inline-block;
     margin: 2px;
+    left: 50px;
 }
 #gameTitle {
     font-family: 'Play', sans-serif;
@@ -86,6 +87,7 @@ body {
     overflow: hidden;
     display: inline-block;
     margin: 2px;
+    left: 700px;
 }
 .cars{
     position: absolute;
